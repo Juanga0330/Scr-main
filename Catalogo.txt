@@ -1,0 +1,30 @@
+1,Camiseta,50
+2,Pantalón,120
+3,Zapatos,200
+4,Chaquetas,300
+5,Gorra,40
+6,Bufanda,60
+7,Guantes,30
+8,Calcetines,20
+9,Cinturon,70
+10,Mochila,150
+11,Sombrero,45
+12,Sandalias,80
+13,Lentes de sol,150
+14,Traje de baño,90
+15,Blusa,70
+16,Chaleco,110
+17,Zapatos deportivos,180
+18,Botas,220
+19,Pijama,100
+20,Corbata,35
+21,Monedero,60
+22,Reloj,250
+23,Aretes,40
+24,Anillo,55
+25,Pulsera,65
+26,Collar,75
+27,Overol,130
+28,Falda,85
+29,Capa,95
+30,Maletín,160
