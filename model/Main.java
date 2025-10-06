@@ -7,11 +7,10 @@ import java.time.format.DateTimeFormatter;
 
 public class Main {
     public static void main(String[] args) {
-        
+
         Scanner sc = new Scanner(System.in);
         Pedido pedido = new Pedido(1);
 
-        // Lista de productos
         List<Producto> productos = CargaDeProductos.CargaDeProducto("C:\\Users\\Juanp\\Documents\\scr-main\\scr-main\\Catalogo.txt");
 
         System.out.println("=== Catálogo de productos ===");
@@ -26,10 +25,10 @@ public class Main {
             opcion = sc.nextInt();
 
             if (opcion == 0) {
-                System.out.println("\n Pedido finalizado.");
+                System.out.println("\nPedido finalizado.");
             } else if (opcion >= 1 && opcion <= productos.size()) {
-                pedido.agregarProducto(productos.get(opcion));
-                System.out.println(" " + productos.get(opcion).getNombre() + " agregado al carrito.");
+                pedido.agregarProducto(productos.get(opcion - 1));
+                System.out.println(" " + productos.get(opcion - 1).getNombre() + " agregado al carrito.");
             } else {
                 System.out.println(" Opción inválida. Intente de nuevo.");
             }
@@ -42,9 +41,37 @@ public class Main {
         }
 
         System.out.println("\n=== Total del pedido ===");
-        System.out.println("Total a pagar: $" + pedido.calcularTotal());
+        double total = pedido.calcularTotal();
+        System.out.println("Total a pagar: $" + total);
 
-        
+        MetodoDePago transferencia = new TransferenciaBancaria("Juan Pérez", total, "Banco Bogotá", 12345678);
+        MetodoDePago tarjeta = new Tarjeta("Juan Pérez", total, "Visa", "1234567812345678");
+        MetodoDePago billetera = new BilleteraDigital("Juan Pérez", total, "3109876543", "Nequi");
+
+        System.out.println("\n=== Métodos de pago disponibles ===");
+        System.out.println("1. Transferencia bancaria");
+        System.out.println("2. Tarjeta de crédito");
+        System.out.println("3. Billetera digital");
+
+        System.out.print("\nSeleccione método de pago: ");
+        int metodo = sc.nextInt();
+
+        System.out.println();
+        switch (metodo) {
+            case 1:
+                transferencia.procesarPago();
+                break;
+            case 2:
+                tarjeta.procesarPago();
+                break;
+            case 3:
+                billetera.procesarPago();
+                break;
+            default:
+                System.out.println("Método de pago inválido.");
+                break;
+        }
+
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d 'de' MMMM 'de' yyyy HH:mm", new Locale("es", "ES"));
         System.out.println("\nFecha de compra: " + pedido.getFechaDeCompra().format(formatter));
         System.out.println("Fecha máxima de pago: " + pedido.getFechaDeCompra().plusHours(24).format(formatter));
