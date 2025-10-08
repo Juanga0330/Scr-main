@@ -19,7 +19,6 @@ public class TransferenciaBancaria extends MetodoDePago {
     }
 
     @Override
-    
     public void procesarPago() {
         String numeroCuentaString = String.valueOf(numeroCuenta);
         System.out.println("Procesando pago mediante transferencia bancaria a la cuenta: @@@@" 

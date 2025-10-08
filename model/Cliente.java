@@ -11,4 +11,12 @@ public class Cliente {
     public void showInfo() {
         System.out.println("Información del cliente: \nNombre: " + nombre + "\nEmail: " + email);
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getEmail() {
+        return email;
+    }
 }

@@ -29,6 +29,6 @@ public class Tarjeta extends MetodoDePago {
     @Override
     public void procesarPago() {
         String numeroDeTarjetaString = String.valueOf(numeroDeTarjeta);
-        System.out.println("Procesando pago con tarjeta:   @@@" + numeroDeTarjetaString.substring(numeroDeTarjetaString.length() - 4));
+        System.out.println("Procesando pago con tarjeta: ****" + numeroDeTarjetaString.substring(numeroDeTarjetaString.length() - 4));
     }
 }

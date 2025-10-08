@@ -17,7 +17,5 @@ public abstract class MetodoDePago {
         return precio;
     }
 
-    
     public abstract void procesarPago();
-        System.out.println("Procesando pago de $" + precio + " para " + nombreCliente);
-    }
+}
