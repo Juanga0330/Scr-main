@@ -1,5 +1,6 @@
 package model;
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,8 +21,12 @@ public class CargaDeProductos {
 
                 productos.add(new Producto(id, nombre, precio));
             }
+        }catch (FileNotFoundException e){
+            System.out.println("No se encontro el archivo" + pathFile);
+        
         }catch (IOException e){
-            System.out.println("error leyendo archivo" +e.getMessage());
+            System.out.println("Error al leer el archivo" + e.getMessage());
+
         }
         return productos;
        

@@ -23,7 +23,8 @@ public class Pedido {
         this.fechaDeCompra = fechaDeCompra;
     }
 
-    public void agregarProducto(Producto producto) {
+    public void agregarProducto(Producto producto)  throws IllegalArgumentException{
+        if (producto == null) throw new IllegalArgumentException("El producto no puede ser nulo");
         productos.add(producto);
     }
 
